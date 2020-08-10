@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import Enums.NoteName;
 import org.junit.Test;
 
 public class TestNote {

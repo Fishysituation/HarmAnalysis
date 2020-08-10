@@ -1,21 +1,23 @@
+package Enums;
+
 public enum NoteName {
-  A(0, "A"),
-  AS(1, "A#"),
-  B(2, "B"),
-  C(3, "C"),
-  CS(4, "C#"),
-  D(5, "D"),
-  DS(6, "D#"),
-  E(7, "E"),
-  F(8, "F"),
-  FS(9, "F#"),
-  G(10, "G"),
-  GS(11, "G#");
+  C(0, "C"),
+  CS(1, "C#"),
+  D(2, "D"),
+  DS(3, "D#"),
+  E(4, "E"),
+  F(5, "F"),
+  FS(6, "F#"),
+  G(7, "G"),
+  GS(8, "G#"),
+  A(9, "A"),
+  AS(10, "A#"),
+  B(11, "B");
 
   private int value;
   private String rep;
 
-  NoteName (int value, String rep) {
+  NoteName(int value, String rep) {
     this.value = value;
     this.rep = rep;
   }

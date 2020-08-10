@@ -1,6 +1,6 @@
+package Enums;
 
-
-enum Interval {
+public enum Interval {
   SAME(0, "-"),
   MIN2(1, "m2"),
   MAJ2(2, "2"),

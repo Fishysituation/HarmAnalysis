@@ -1,3 +1,5 @@
+import Enums.NoteName;
+
 public class Note implements Comparable<Note> {
 
   private final NoteName name;
@@ -16,7 +18,7 @@ public class Note implements Comparable<Note> {
     return this.name;
   }
 
-  //return pos if current is higher pitch
+  // return pos if current is higher pitch
   //       0 if same
   //       neg if lower pitch
   @Override
