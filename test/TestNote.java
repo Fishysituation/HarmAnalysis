@@ -1,9 +1,23 @@
 import static org.junit.Assert.*;
 
+import Enums.Interval;
 import Enums.NoteName;
 import org.junit.Test;
 
 public class TestNote {
+
+  @Test
+  public void testAddInterval() {
+    NoteName n1 = NoteName.C;
+    NoteName n2 = NoteName.CS;
+    Interval a1 = Interval.MAJ7;
+    Interval a2 = Interval.MAJ3;
+    assertEquals(n1.addInterval(a1), NoteName.B);
+    assertEquals(n2.addInterval(a1), NoteName.C);
+    assertEquals(n1.addInterval(a2), NoteName.E);
+    assertEquals(n2.addInterval(a2), NoteName.F);
+  }
+
   @Test
   public void testCompare() {
     Note n1 = new Note(NoteName.A, 4);

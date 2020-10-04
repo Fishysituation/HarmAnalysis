@@ -29,4 +29,13 @@ public enum NoteName {
   public int getValue() {
     return this.value;
   }
+
+  public NoteName addInterval(Interval interval) {
+    for (NoteName note : values()) {
+      if (note.value == (value + interval.getSize()) % 12) {
+        return note;
+      }
+    }
+    return null;
+  }
 }
