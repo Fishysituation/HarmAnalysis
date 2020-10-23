@@ -7,8 +7,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 // instance is a labelling of a chord
-public class Chord {
-  private final NoteName root;
+public class Chord extends Structure {
+
   private final Triad triad;
   private final Extension extension;
 
@@ -17,10 +17,6 @@ public class Chord {
     this.root = root;
     this.triad = triad;
     this.extension = extension;
-  }
-
-  public NoteName getRoot() {
-    return this.root;
   }
 
   public Triad getTriad() {
@@ -54,4 +50,6 @@ public class Chord {
   public String toString() {
     return root.toString() + triad.toString() + extension.toString();
   }
+
+
 }

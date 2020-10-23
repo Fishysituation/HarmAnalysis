@@ -1,21 +1,17 @@
+import Enums.Interval;
 import Enums.NoteName;
 import Enums.ScaleIntervals;
 
 import java.util.HashSet;
 import java.util.Set;
 
-public class Scale {
+public class Scale extends Structure {
 
-  private NoteName root;
-  private ScaleIntervals scale;
+  private final ScaleIntervals scale;
 
   public Scale (NoteName root, ScaleIntervals scale) {
     this.root = root;
     this.scale = scale;
-  }
-
-  public NoteName getRoot() {
-    return root;
   }
 
   public ScaleIntervals getScale() {
@@ -37,4 +33,5 @@ public class Scale {
   public String toString() {
     return root.toString() + scale.toString();
   }
+
 }

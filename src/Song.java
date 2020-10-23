@@ -1,7 +1,8 @@
-import java.util.ArrayList;
+import Enums.Interval;
+
 import java.util.List;
 
-public class Song {
+public class Song implements Transposable {
 
   private final List<Chord> chords;
 
@@ -9,15 +10,14 @@ public class Song {
     this.chords = chords;
   }
 
-  /*
-  public Song transpose(Enums.Interval interval) {
-    ArrayList<Chord> newChords = new ArrayList<>();
-
+  public List<Chord> getChords() {
+    return chords;
   }
 
-  public static Key getKey() {
-
+  @Override
+  public void transpose(Interval transposeUp) {
+    for (Chord chord : chords) {
+      chord.transpose(transposeUp);
+    }
   }
-
-   */
 }
