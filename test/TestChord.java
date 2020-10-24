@@ -1,8 +1,8 @@
 import static org.junit.Assert.*;
 
 import Enums.Extension;
-import Enums.Interval;
 import Enums.NoteName;
+import Enums.ScaleIntervals;
 import Enums.Triad;
 import org.junit.Test;
 
@@ -61,13 +61,40 @@ public class TestChord {
   }
 
   @Test
-  public void testHasChordTone() throws Exception {
+  public void testChordContains() throws Exception {
     Chord minmaj7 = new Chord(NoteName.C, Triad.MIN, Extension.MAJ7);
-    assertTrue(minmaj7.hasChordTone(NoteName.C));
-    assertTrue(minmaj7.hasChordTone(NoteName.DS));
-    assertTrue(minmaj7.hasChordTone(NoteName.G));
-    assertTrue(minmaj7.hasChordTone(NoteName.B));
-    assertFalse(minmaj7.hasChordTone(NoteName.CS));
-    assertFalse(minmaj7.hasChordTone(NoteName.GS));
+    assertTrue(minmaj7.contains(NoteName.C));
+    assertTrue(minmaj7.contains(NoteName.DS));
+    assertTrue(minmaj7.contains(NoteName.G));
+    assertTrue(minmaj7.contains(NoteName.B));
+    assertFalse(minmaj7.contains(NoteName.CS));
+    assertFalse(minmaj7.contains(NoteName.GS));
+  }
+
+  @Test
+  public void testChordisStrictlyIn() {
+    Chord cmaj = new Chord(NoteName.C, Triad.MAJ, Extension.MAJ7);
+    Chord dmin = new Chord(NoteName.D, Triad.MIN, Extension.MIN7);
+    Chord emin = new Chord(NoteName.E, Triad.MIN, Extension.MIN7);
+    Chord fmaj = new Chord(NoteName.F, Triad.MAJ, Extension.MAJ7);
+    Chord gmaj = new Chord(NoteName.G, Triad.MAJ, Extension.MIN7);
+    Chord amin = new Chord(NoteName.A, Triad.MIN, Extension.MIN7);
+    Chord bhdim = new Chord(NoteName.B, Triad.DIM, Extension.MIN7);
+    Chord csmin = new Chord(NoteName.CS, Triad.MIN, Extension.MIN7);
+    Chord fsmin = new Chord(NoteName.FS, Triad.MIN, Extension.MIN7);
+
+    Scale cscale = new Scale(NoteName.C, ScaleIntervals.MAJ);
+
+    assertTrue(cmaj.chordIsStrictlyIn(cscale));
+    assertTrue(dmin.chordIsStrictlyIn(cscale));
+    assertTrue(emin.chordIsStrictlyIn(cscale));
+    assertTrue(fmaj.chordIsStrictlyIn(cscale));
+
+    assertTrue(gmaj.chordIsStrictlyIn(cscale));
+
+    assertTrue(amin.chordIsStrictlyIn(cscale));
+    assertTrue(bhdim.chordIsStrictlyIn(cscale));
+    assertFalse(csmin.chordIsStrictlyIn(cscale));
+    assertFalse(fsmin.chordIsStrictlyIn(cscale));
   }
 }

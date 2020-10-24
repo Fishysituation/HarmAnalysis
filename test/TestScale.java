@@ -11,15 +11,15 @@ public class TestScale {
   @Test
   public void testToString() {
     Scale scale = new Scale(NoteName.C, ScaleIntervals.MAJ);
-    assertEquals(scale.toString(), "CMAJ");
+    assertEquals(scale.toString(), "Cmaj");
   }
 
   @Test
   public void testScaleContains() {
     Scale scale = new Scale(NoteName.C, ScaleIntervals.MAJ);
-    assertTrue(scale.scaleContains(NoteName.D));
-    assertTrue(scale.scaleContains(NoteName.B));
-    assertTrue(scale.scaleContains(NoteName.C));
-    assertFalse(scale.scaleContains(NoteName.CS));
+    assertTrue(scale.contains(NoteName.D));
+    assertTrue(scale.contains(NoteName.B));
+    assertTrue(scale.contains(NoteName.C));
+    assertFalse(scale.contains(NoteName.CS));
   }
 }

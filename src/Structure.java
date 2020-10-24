@@ -16,5 +16,9 @@ public abstract class Structure implements Transposable {
     return root;
   }
 
+  public boolean contains(NoteName name) {
+    return getNotes().contains(name);
+  }
+
   public abstract Set<NoteName> getNotes();
 }

@@ -4,6 +4,7 @@ import Enums.NoteName;
 import Enums.Triad;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 // instance is a labelling of a chord
@@ -28,7 +29,8 @@ public class Chord extends Structure {
   }
 
   public Set<NoteName> getNotes() {
-    Set<Interval> intervals = triad.getIntervals();
+    Set<Interval> intervals = new HashSet<>();
+    intervals.addAll(triad.getIntervals());
     intervals.add(extension.getInterval());
     Set<NoteName> notes = new HashSet<NoteName>();
     notes.add(root);
@@ -36,11 +38,25 @@ public class Chord extends Structure {
     return notes;
   }
 
-  public boolean hasChordTone(NoteName name) {
-    return getNotes().contains(name);
+  //return true iff all chord notes are in the scale
+  public boolean chordIsStrictlyIn(Scale scale) {
+    for (NoteName note : getNotes()) {
+      if (!scale.contains(note)) {
+        System.out.println(note.toString());
+        return false;
+      }
+    }
+    return true;
   }
 
-  // TODO - implement to be equal if has same function
+  public Optional<Relation> getRelation(Scale scale) {
+    if (chordIsStrictlyIn(scale)) {
+      return Optional.of(new Relation(Interval.MAJ3, scale, this));
+    }
+    return Optional.empty();
+  }
+
+  // TODO - implement to be equal if has same function? e.g. bII7 equals V7
   @Override
   public boolean equals(Object other) {
     return super.equals(other);
@@ -50,6 +66,4 @@ public class Chord extends Structure {
   public String toString() {
     return root.toString() + triad.toString() + extension.toString();
   }
-
-
 }

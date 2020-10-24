@@ -25,13 +25,9 @@ public class Scale extends Structure {
     return notes;
   }
 
-  public boolean scaleContains(NoteName name) {
-    return getNotes().contains(name);
-  }
-
   @Override
   public String toString() {
-    return root.toString() + scale.toString();
+    return root.toString() + scale.getName();
   }
 
 }
