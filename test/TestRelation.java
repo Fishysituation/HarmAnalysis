@@ -3,7 +3,6 @@ import org.junit.Test;
 
 import java.util.Optional;
 
-import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
 public class TestRelation {
@@ -23,13 +22,13 @@ public class TestRelation {
 
     Scale cscale = new Scale(NoteName.C, ScaleIntervals.MAJ);
 
-    assertEquals(bhdim.getRelation(cscale).get(), new Relation(Interval.MAJ7, cscale, bhdim));
-    assertEquals(amin.getRelation(cscale).get(), new Relation(Interval.MAJ6, cscale, amin));
-    assertEquals(cmaj.getRelation(cscale).get(), new Relation(Interval.SAME, cscale, cmaj));
-    assertEquals(dmin.getRelation(cscale).get(), new Relation(Interval.MAJ2, cscale, dmin));
-    assertEquals(emin.getRelation(cscale).get(), new Relation(Interval.MAJ3, cscale, emin));
-    assertEquals(fmaj.getRelation(cscale).get(), new Relation(Interval.PERF4, cscale, fmaj));
-    assertEquals(gmaj.getRelation(cscale).get(), new Relation(Interval.PERF5, cscale, gmaj));
+    assertEquals(bhdim.getRelation(cscale).get(), new Relation(cscale, bhdim));
+    assertEquals(amin.getRelation(cscale).get(), new Relation(cscale, amin));
+    assertEquals(cmaj.getRelation(cscale).get(), new Relation(cscale, cmaj));
+    assertEquals(dmin.getRelation(cscale).get(), new Relation(cscale, dmin));
+    assertEquals(emin.getRelation(cscale).get(), new Relation(cscale, emin));
+    assertEquals(fmaj.getRelation(cscale).get(), new Relation(cscale, fmaj));
+    assertEquals(gmaj.getRelation(cscale).get(), new Relation(cscale, gmaj));
     assertEquals(csmin.getRelation(cscale), Optional.empty());
     assertEquals(fsmin.getRelation(cscale), Optional.empty());
 

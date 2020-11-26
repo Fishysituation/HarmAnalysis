@@ -51,9 +51,13 @@ public class Chord extends Structure {
 
   public Optional<Relation> getRelation(Scale scale) {
     if (chordIsStrictlyIn(scale)) {
-      return Optional.of(new Relation(Analyze.getLogicalInterval(scale.root, root), scale, this));
+      return Optional.of(new Relation(scale, this));
     }
     return Optional.empty();
+  }
+
+  public NoteName getRoot() {
+    return root;
   }
 
   @Override
