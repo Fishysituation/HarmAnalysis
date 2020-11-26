@@ -3,9 +3,9 @@ import Enums.Interval;
 // Instance relates a chord to a scale
 public class Relation {
 
-//  //Arbitrary scores for each of the 7 scale degrees
-//  static final int[] SCORES = {4, 2, 1, 2, 3, 2, };
-//
+  //Arbitrary values representing "strength" of a chord on each scale degree
+  //TODO: put somewhere else to make testing/other references easier
+  private static final int[] SCORES = {5, 2, 1, 3, 4, 2, 1};
 
   //reference to parent scale
   private final Scale scale;
@@ -18,10 +18,9 @@ public class Relation {
     this.chord = chord;
   }
 
-//  //
-//  public int getScore() {
-//    return SCORES[roman.getSize()];
-//  }
+  public int getScore() {
+    return SCORES[scale.getScale().getDegrees().indexOf(getInterval())];
+  }
 
   public Interval getInterval() {
     return Analyze.getLogicalInterval(scale.root, chord.getRoot());
