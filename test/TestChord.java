@@ -89,9 +89,7 @@ public class TestChord {
     assertTrue(dmin.chordIsStrictlyIn(cscale));
     assertTrue(emin.chordIsStrictlyIn(cscale));
     assertTrue(fmaj.chordIsStrictlyIn(cscale));
-
     assertTrue(gmaj.chordIsStrictlyIn(cscale));
-
     assertTrue(amin.chordIsStrictlyIn(cscale));
     assertTrue(bhdim.chordIsStrictlyIn(cscale));
     assertFalse(csmin.chordIsStrictlyIn(cscale));

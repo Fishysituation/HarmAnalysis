@@ -7,10 +7,12 @@ import org.junit.Test;
 public class TestInterval {
   @Test
   public void testGetLogicalInterval() throws Exception {
-    assertEquals(Interval.MIN6, Analyze.getLogicalInterval(NoteName.A, NoteName.CS));
-    assertEquals(Interval.MAJ3, Analyze.getLogicalInterval(NoteName.CS, NoteName.A));
-    assertEquals(Interval.PERF4, Analyze.getLogicalInterval(NoteName.A, NoteName.E));
-    assertEquals(Interval.PERF5, Analyze.getLogicalInterval(NoteName.E, NoteName.A));
+    assertEquals(Interval.MAJ3, Analyze.getLogicalInterval(NoteName.A, NoteName.CS));
+    assertEquals(Interval.MIN6, Analyze.getLogicalInterval(NoteName.CS, NoteName.A));
+    assertEquals(Interval.PERF5, Analyze.getLogicalInterval(NoteName.A, NoteName.E));
+    assertEquals(Interval.PERF4, Analyze.getLogicalInterval(NoteName.E, NoteName.A));
+    assertEquals(Interval.MIN2, Analyze.getLogicalInterval(NoteName.B, NoteName.C));
+    assertEquals(Interval.MAJ7, Analyze.getLogicalInterval(NoteName.C, NoteName.B));
   }
 
   @Test

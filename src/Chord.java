@@ -51,12 +51,11 @@ public class Chord extends Structure {
 
   public Optional<Relation> getRelation(Scale scale) {
     if (chordIsStrictlyIn(scale)) {
-      return Optional.of(new Relation(Interval.MAJ3, scale, this));
+      return Optional.of(new Relation(Analyze.getLogicalInterval(scale.root, root), scale, this));
     }
     return Optional.empty();
   }
 
-  // TODO - implement to be equal if has same function? e.g. bII7 equals V7
   @Override
   public boolean equals(Object other) {
     return super.equals(other);

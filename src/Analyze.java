@@ -5,9 +5,9 @@ public final class Analyze {
 
   public static int TEMPERAMENT = 12;
 
-  // ignores pitch, only looks at relation between note names (order n1, n2 matters)
+  // ignores pitch, returns the interval of note1 up to note2
   public static Interval getLogicalInterval(NoteName note1, NoteName note2) {
-    return Interval.getFromSize((note1.getValue() - note2.getValue() + TEMPERAMENT) % TEMPERAMENT);
+    return Interval.getFromSize(((note2.getValue() + TEMPERAMENT ) - note1.getValue()) % TEMPERAMENT);
   }
 
   // get the actual interval "mod 12"
