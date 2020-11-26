@@ -31,15 +31,5 @@ public class TestRelation {
     assertEquals(gmaj.getRelation(cscale).get(), new Relation(cscale, gmaj));
     assertEquals(csmin.getRelation(cscale), Optional.empty());
     assertEquals(fsmin.getRelation(cscale), Optional.empty());
-
-
-    assertTrue(dmin.chordIsStrictlyIn(cscale));
-    assertTrue(emin.chordIsStrictlyIn(cscale));
-    assertTrue(fmaj.chordIsStrictlyIn(cscale));
-    assertTrue(gmaj.chordIsStrictlyIn(cscale));
-    assertTrue(amin.chordIsStrictlyIn(cscale));
-    assertTrue(bhdim.chordIsStrictlyIn(cscale));
-    assertFalse(csmin.chordIsStrictlyIn(cscale));
-    assertFalse(fsmin.chordIsStrictlyIn(cscale));
   }
 }

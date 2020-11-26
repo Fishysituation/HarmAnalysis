@@ -1,21 +1,19 @@
 package Enums;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public enum ScaleIntervals {
-  MAJ("maj", new HashSet<Interval>(Arrays.asList(Interval.SAME, Interval.MAJ2, Interval.MAJ3, Interval.PERF4, Interval.PERF5, Interval.MAJ6, Interval.MAJ7)));
+  MAJ("maj", new ArrayList<Interval>(Arrays.asList(Interval.SAME, Interval.MAJ2, Interval.MAJ3, Interval.PERF4, Interval.PERF5, Interval.MAJ6, Interval.MAJ7)));
 
   private String name;
-  private Set<Interval> degrees;
+  private List<Interval> degrees;
 
-  ScaleIntervals(String name, Set<Interval> degrees) {
+  ScaleIntervals(String name, List<Interval> degrees) {
     this.name = name;
     this.degrees = degrees;
   }
 
-  public Set<Interval> getDegrees() {
+  public List<Interval> getDegrees() {
     return degrees;
   }
 
